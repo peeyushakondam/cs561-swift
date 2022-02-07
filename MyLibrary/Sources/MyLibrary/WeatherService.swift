@@ -20,7 +20,7 @@ class WeatherServiceImpl: WeatherService {
                     "Authorization": "Bearer " + token,
                     "Accept": "application/json"
                 ]
-                AF.request("3.91.132.65", method: .get, headers: headers).validate(statusCode: 200..<300).responseDecodable(of: Weather.self) { response in
+                AF.request("http://3.91.132.65", method: .get, headers: headers).validate(statusCode: 200..<300).responseDecodable(of: Weather.self) { response in
                     switch response.result {
                     case let .success(weather):
                         let temperature = weather.main.temp
